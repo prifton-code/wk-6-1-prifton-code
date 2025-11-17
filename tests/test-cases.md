@@ -1,27 +1,412 @@
-# Test Cases — Book Store App (Team: LPP team)
-Created: 10/11/2025  
-Owner: [Lena Wahu]
+# Test Cases
+# (Team: LPP team)
+# Bookstore Application — Complete Test Cases  
+Team: LPP  
+Updated: 17 November 2025  
 
-|No. | ID | Title | Pre-conditions | Steps | Expected Result | Post-conditions | Evidence |
-|----|----|-------|----------------|-------|------------------|------------------|----------|
-| 1 | FR-CAT-001 | Book search returns results and can be searched by title,author and description | Catalog page is loaded, at least one book is available in the catalog | 1. Open /catalog 2. Enter "The Great Gatsby" 3. Observe the catalog results update dynamically | Results show matching book titles | catalogue list displays the book "The Great Gatsby" | test/evidence/FR-CAT-001.png |
-| 2 | FR-CAT-002 | Verify that the Catalog page displays all available books from the data source | App is launched, user is on `/catalog` route | 1. Open the application in the browser 2. Navigate to the catalog page (`/catalog`) 3. Observe the list of books displayed | The catalog page should display all books available in the `books` data array (title, author, and description should be visible for each item). | Book list loads correctly, ready for search or purchase. | test/evidence/FR-CAT-002.png |
-| 3 | FR-CART-001 | Add item to cart increments counter | User on catalog page | 1. Click "Add to Cart" on a book | Cart count increments by 1; cart page contains item | Item persisted in cart | tests/evidence/FR-CART-001.png |
-| 4 | FR-CART-002 | Update cart quatity | User has at least one item in cart | 1. Navigate to cart page 2. Locate quantity input for an item 3. Increase quantity using '^' and decresase using 'v' button 4. Verify total price updates correctly | Quantity changes reflect in cart total price calculation | the books quantity decreases and increases respectively and subtotal changes | test/evidence/FR-CART-002 |
-| 5 | FR-CART-003 | Remove item from cart |user Cart has at least 1 item | 1. Navigate to cart page 2. Click "Remove" button next to an item 3. Verify item is removed from cart 5. Check cart total updates correctly | Item is completely removed from cart, total price recalculated | cart item and subtotal decreases | test/evidence/ FR-CART-003.png |
-| 6 | FR-CART-004 | Cart persisitence across sessions | User has items in cart | 1. Add items to cart 2. Close browser tab 3. Reopen application in new tab 4. Navigate to cart page | Cart items persist across browser sessions via localStorage | the number of items in cart remains the same | test/evidence/FR-CART-004 |
-| 7 | FR-CART-005 | Cart quantity price calculations | User has items in cart | 1. buy "Lord of the Rings" book to cart (Price: $19.99) and "The Great Gatsby" ($15.99) 2. Navigate to cart page 3. Click '^' button to increase quantity to 2 4. Observe total price calculation | Total price should update to $131.93 (5 * $19.99)+(2* 15.99) | the subtotal provides qccurate calculation ($131.93) | test/evidence/FR-CART-005 |
-| 8 | FR-CHK-001 | Checkout Process Initiation | User has items in cart | 1. Navigate to cart page 2. Click "Proceed to Checkout" button 3. Verify checkout page loads 4. Check that cart items are displayed in checkout | Checkout process starts successfully, all cart items visible | Proceeds to the checkout page | test/evidence/ FR-CHK-001.png |
-| 9 | FR-CHK-002 | Shipping Information Form Validation | User is on checkout page | 1. Leave required fields empty 2. Click "Continue to Payment" 3. Verify validation messages appear 4. Fill in invalid email format 5. Verify email validation works | Form validation prevents proceeding with invalid data | displays 'please fill out this field' message | test/evidence/ FR-CHK-002-01.png and test/evidence/FR-CHK-002-02.png |
-| 10 | FR-CHK-003 | Paystack Test Card Processing| User has items in cart, on checkout page | 1. Proceed to payment section 2. Enter test card: 4084084084084081 3. Enter any 3-digit CVV, future expiry date 4. Complete payment process 5. Observe currency displayed in payment gateway | Payment processes successfully, order confirmation displayed | displays order cornfirmation | test/evidence/FR-CHK-003.png |
-| 11 | FR-CHK-004 | Payment Currency Mismatch Bug| User is on payment step | 1. Browse products showing prices in $ (dollars) 2. Add items to cart, proceed to checkout 3. Initiate Paystack payment 4. Observe currency in payment gateway | Payment gateway should use same currency as UI ($) | Payment gateway uses KES (Kenyan Shillings) regardless of UI display | test/evidence/FR-CHK-004.png |
-| 12 | FR-ORD-001 | Order confirmation details | User has completed a purchase | 1. Complete checkout process successfully 2. Verify order confirmation page loads 3. Check order number is displayed 4. Verify order details match cart items | Order confirmation displays correct details | all correct details are displays | test/evidence/FR-ORD-001.png |
-| 13 | FR-ORD-002 | Order History Access | User has completed previous orders | 1. Navigate to "My Orders" or order history page 2. Verify previous orders are listed 3. Click on a specific order to view details 4. Verify order details match original purchase | order history displays all previous orders with correct details | all previous orders are displayed with correct details | test/evidence/FR-ORD-002.png |
-| 14 | FR-A11Y-001 | Keyboard Navigation | User is on homepage | 1. Use Tab key to navigate through page 2. Verify focus indicators are visible on all interactive elements 3. Check that all buttons/links are reachable via keyboard 4. Use Enter/Space to activate elements | Full keyboard accessibility with visible focus indicators | All buttons are reachable and accessible via enter,space and tab keys| test/evidence/ FR-A11Y-001.png |
-| 15 | FR-A11Y-002 | Screen Reader Compatibility | Screen reader enabled (or browser accessibility tools) | 1. Navigate through product grid 2. Verify images have descriptive alt text 3. Check form fields have proper labels 4. Verify interactive elements have meaningful names | Screen reader can properly interpret and announce all content | All content is properly interpreted and announced on screenreader | test/evidence/FR-A11Y-002.png|
-| 16 | FR-A11Y-003 | Checkout Modal Accessibility Bug | User is in checkout process | 1. Proceed to checkout process 2. Open accessibility audit tool (axe DevTools) 3. Scan checkout modal/dialog | Modal should have aria-modal="true" and proper focus management | Missing aria-modal attribute, focus not trapped in modal| test/evidence/FR-A11Y-003.png |
-| 17 | FR-PERF-001 | Page Load Performance | Clear browser cache, stable network | 1. Open browser DevTools 2. Navigate to homepage 3. Record page load time 4. Run Lighthouse performance audit 5. Note Core Web Vitals scores | Page loads  | page loads within 3 seconds | test/evidence/FR-PERF-001.png |
-| 18 | FR-PERF-002 | Layout Shift (CLS) Measurement | Network throttled to "Slow 3G | 1. Open browser DevTools and go to Performance tab 2. Throttle network to "Slow 3G" 3. Navigate to homepage 4. Scroll down and observe image loading behavior | Images should load with reserved space to prevent layout shifts | Content jumps significantly as images load (Cumulative Layout Shift > 0.25) | test/evidence/FR-PERF-002.png |
-| 19 | FR-ADM-001 | | | | | | | 
-| 20 | FR-ADM-002 | | | | | | |
-| 21 | FR-ADM-003 | | | | | | |
+---
+
+### 1. TC-CART-001: Add Item to Cart
+*Priority:* High  
+*Test Type:* Manual  
+*Test Environment:* Android, Chrome browser  
+*Pre-conditions:* User is viewing product details page  
+
+*Steps:*
+1. Click “Add to Cart” on any book  
+2. Observe cart icon in header  
+3. Click cart icon  
+4. Verify item appears in cart with correct details  
+
+*Expected Result:*
+Item is added to cart, cart counter updates, item details are correct
+
+*Evidence:* 
+/test/evidence/FR-CART-001.png
+
+
+---
+
+### 2. TC-CART-002: Update Cart Quantity
+*Priority:* High  
+*Test Type:* Manual  
+*Test Environment:* Android, Chrome browser  
+*Pre-conditions:* At least one item in cart  
+
+*Steps:*  
+1. Navigate to cart  
+2. Locate quantity input  
+3. Increase quantity  
+4. Verify total updates  
+5. Decrease quantity  
+
+*Expected Result:* Total updates according to quantity.  
+
+*Evidence:* 
+/test/evidence/FR-CART-002.png
+
+---
+
+### 3. TC-CART-003: Remove Item from Cart  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Android, Chrome  
+*Pre-conditions:* Items exist in cart  
+
+*Steps:*  
+1. Navigate to cart  
+2. Click *Remove*  
+3. Confirm  
+4. Verify item removed  
+5. Check total recalculation  
+
+*Expected Result:* Item fully removed, total recalculated  
+
+*Evidence:*
+/test/evidence/FR-CART-003.png
+
+---
+
+### 4. TC-CART-004: Cart Persistence Across Sessions  
+*Priority:* Medium  
+*Test Type:* Manual  
+*Environment:* Android Chrome  
+*Pre-conditions:* Items in cart  
+
+*Steps:*  
+1. Add items to cart  
+2. Close browser  
+3. Reopen app  
+4. Go to cart  
+
+*Expected Result:* Cart persists via localStorage 
+
+*Evidence:*
+/test/evidence/FR-CART-004.png
+
+---
+
+### 5. TC-CART-005: Cart Price Calculation  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Android Chrome  
+*Pre-conditions:* Items in cart  
+
+*Steps:*  
+1. Add book to cart  
+2. Increase quantity to 2  
+3. Observe total  
+
+*Expected Result:* Total updates correctly  
+
+*Actual Result:* Works correctly  
+
+*Evidence:*
+test/evidence/FR-CART-002.png
+
+---
+
+### 6. TC-CART-006 (from FR-CART-005): Multi-Item Price Calculation  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Browser  
+*Pre-conditions:* User has items in cart  
+
+*Steps:*  
+1. Add *Lord of the Rings ($19.99)* ×5  
+2. Add *The Great Gatsby ($15.99)* ×2  
+3. Verify subtotal  
+
+*Expected Result:*  
+Correct total:  
+(5 × 19.99) + (2 × 15.99) = 131.93  
+
+*Evidence:* 
+test/evidence/FR-CART-002.png
+
+---
+
+### 7. TC-CHK-006: Checkout Process Initiation  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Android Chrome  
+*Pre-conditions:* Items in cart  
+
+*Steps:*  
+1. Open cart  
+2. Click *Proceed to Checkout*  
+3. Verify checkout page loads  
+4. Check items displayed  
+
+*Expected Result:* Checkout loads with items
+
+*Evidence:* 
+/test/evidence/FR-CHK-006.png.jpg
+
+---
+
+### 8. TC-CHK-007: Shipping Information Validation  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Android Chrome  
+*Pre-conditions:* Checkout page  
+
+*Steps:*  
+1. Leave required fields empty  
+2. Click Continue  
+3. Verify validation messages  
+
+*Expected Result:* Validation prevents continuing  
+
+*Evidence:* 
+/test/evidence/FR-CHK-008.jpg
+
+
+---
+
+### 9. TC-CHK-008 (FR-CHK-003): Paystack Test Payment  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Browser  
+*Pre-conditions:* On payment step  
+
+*Steps:*  
+1. Enter test card *4084084084084081*  
+2. Enter CVV + expiry  
+3. Submit  
+4. Observe confirmation  
+
+*Expected Result:* Payment succeeds 
+
+*Evidence:* 
+/test/evidence/FR-CHK-004.png  
+
+---
+
+### 10. TC-CHK-009 (FR-CHK-004): Currency Mismatch  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Browser  
+
+*Steps:*  
+1. Ensure UI shows $  
+2. Begin Paystack  
+3. Check payment currency  
+
+*Expected Result:* Gateway uses USD 
+
+*Actual Result:* Uses *KES*
+
+*Evidence:* 
+/test/evidence/FR-CHK-003.png
+
+---
+
+### 11. TC-CAT-008: Homepage Loads with Product Grid  
+*Priority:* High  
+*Test Type:* Manual  
+*Environment:* Android Chrome  
+
+*Steps:*  
+1. Open homepage  
+2. Wait for load  
+3. Verify product grid  
+4. Check multiple books visible  
+
+*Expected Result:* Product grid loads correctly 
+
+*Evidence:* 
+/test/evidence/FR-CAT-004.jpg
+
+
+---
+
+### 12. TC-CAT-009: Product Search Functionality  
+*Priority:* Critical  
+*Test Type:* Manual  
+*Environment:* Android Chrome  
+
+*Steps:*  
+1. Search "1984"  
+2. Press Enter  
+3. Observe results  
+
+*Expected Result:* Only matching books display  
+
+*Actual Result:* One search input works, the other does not  
+
+*Evidence:* 
+/test/evidence/FR-CAT-001
+
+---
+
+### 13. TC-CAT-010: Search Options (Title, Author, Description)  
+*Priority:* High  
+*Test Type:* Manual  
+
+*Steps:*  
+1. Search by author  
+2. Search by title  
+3. Search by description  
+
+*Expected Result:* Correct result per search type 
+
+*Evidence:* 
+/test/evidence/FR-CAT-001.png  
+
+---
+
+### 14. TC-CAT-011: Search Results Persistence  
+*Priority:* High  
+*Test Type:* Manual  
+
+*Steps:*  
+1. Search “1984”  
+2. Clear input completely  
+3. Press Enter  
+
+*Expected Result:* Should show *all* products
+
+*Evidence:
+/test/evidence/FR-CAT-003.jpg
+
+
+---
+
+### 15. TC-CAT-012 (from FR-CAT-001): Search by Title/Author/Description  
+*Priority:* High  
+
+*Steps:*  
+1. Search “The Great Gatsby”  
+2. Observe results  
+
+*Expected Result:* Catalog returns matching book  
+
+*Evidence:* 
+/test/evidence/FR-CAT-001.png  
+
+---
+
+### 16. TC-CAT-013 (FR-CAT-002): Catalog Loads All Books  
+*Priority:* High  
+
+*Steps:*  
+1. Open /catalog  
+2. View all books  
+
+*Expected Result:* All books in dataset appear  
+
+*Evidence:* 
+/test/evidence/FR-CAT-002.png
+
+
+
+---
+
+### 17. TC-ORD-001: Order Confirmation Details  
+*Priority:* High  
+
+*Steps:*  
+1. Complete purchase  
+2. Verify order number  
+3. Compare order details  
+
+*Expected Result:* Correct confirmation display  
+
+*Evidence:* 
+/test/evidence/FR-ORD-001.png
+
+---
+
+### 18. TC-ORD-002: Order History Access  
+*Priority:* Medium  
+
+*Steps:*  
+1. Navigate to My Orders  
+2. Select order  
+3. Review details  
+
+*Expected Result:* Correct history and details  
+
+*Evidence:* 
+/test/evidence/FR-ORD-002.png
+
+
+---
+
+### 19. TC-A11Y-001: Keyboard Navigation  
+*Priority:* Medium  
+
+*Steps:*  
+1. Use Tab to navigate  
+2. Check focus indicators  
+3. Use Enter/Space  
+
+*Expected Result:* All elements accessible 
+
+*Evidence:* 
+/test/evidence/FR-A11Y-001.png  
+
+---
+
+### 20. TC-A11Y-002: Screen Reader Compatibility  
+*Priority:* Medium  
+
+*Steps:*  
+1. Enable screen reader  
+2. Navigate catalog  
+3. Verify alt text & labels  
+
+*Expected Result:* Screen reader reads all content 
+
+*Evidence:* 
+/test/evidence/FR-A11Y-002.png  
+
+---
+
+### 21. TC-A11Y-003: Checkout Modal Accessibility  
+*Priority:* Medium  
+
+*Steps:*  
+1. Run axe audit  
+2. Inspect modal  
+
+*Expected Result:* aria-modal="true" + focus trap 
+
+*Actual Result:* Missing / failing  
+
+*Evidence:* 
+/test/evidence/FR-A11Y-003.png  
+
+
+---
+
+### 22. TC-PERF-001: Page Load Performance  
+*Priority:* Medium  
+
+*Steps:*  
+1. Run Lighthouse  
+2. Measure FCP, LCP, etc.  
+
+*Expected Result:* Page loads within 3 seconds
+
+*Evidence:*
+/test/evidence/FR-PERF-001.png
+
+---
+
+### 23. TC-PERF-002: Layout Shift (CLS)  
+*Priority:* Medium  
+
+*Steps:*  
+1. Slow 3G mode  
+2. Observe image shifts  
+
+*Expected Result:* No major layout shifts
+
+*Actual Result:* CLS > 0.25 (bad) 
+
+*Evidence:* 
+/test/evidence/FR-PERF-002.png  
+
+---
