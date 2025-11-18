@@ -19,17 +19,15 @@ Testing covered routing, navigation, checkout workflow, and accessibility of maj
 | BUG002 | 12/11/2025 | CheckoutPage | Missing input validation for postal code format | 1. Enter letters in postal code 2. Click 'Next'| Should display validation error | Form proceeds without validating postal code | Major | Open | Lena |
 | BUG003 | 12/11/2025 | CheckoutPage | Invalid email accepted | 1. Enter abc@ as email 2. Click 'Next' | Should show “Enter valid email” error | Form accepts invalid email | Major | Open | Peter Adebisi |
 | BUG004 | 13/11/2025 | CheckoutPage | Payment fails silently on network loss | 1. Disconnect network 2. Click 'Pay Now' | User notified of connection issue | Displays “Payment failed to start” without clear cause | Minor | Open | Lena |
-|
-| BUG006 | 13/11/2025 | CheckoutPage | Screen reader missing ARIA roles for steps | 1. Open checkout 2. Inspect with screen reader | Each step should have proper ARIA labels | Screen reader reads plain text only | Minor | open | Prifton Mliwa |
-| BUG007 | 13/11/2025 | CheckoutPage | Order confirmation flashes before redirect | 1. Complete payment 2. Observe redirect | Smooth redirect to /orders/:id | Confirmation flashes briefly | Cosmetic | Open | Lena |
-| BUG008 | 13/11/2025 | Navbar | Search not submitting queries correctly | 1. Enter a book title 2. Press Enter | Should search and filter catalog results | Pressing Enter only redirects to /catalog without using search input | Major | Open | Peter Adebisi |
-| BUG009 | 13/11/2025 | Navbar | Search bar clears unexpectedly after route change | 1. Search a book 2. Navigate to another page 3. Go back | Search term should persist | Search field resets automatically | Minor | Open | Peter Adebisi |
-| BUG010 | 13/11/2025 | Navbar | No debounce for keypress in search | 1. Type quickly in search field | Should handle input efficiently | Input lags and re-renders cause delay | Minor | Open | Lena |
-| BUG011 | 2025-11-13 | Navbar | ESC key not consistently resetting focus | 1. Click in search 2. Press ESC repeatedly | Should clear and refocus search field | Focus sometimes lost and requires manual click | Minor | Open | Prifton Mliwa|
-| BUG012 | 13/11/2025 | Navbar | Cart count badge overlaps icon on mobile | 1. Open app on narrow screen 2. Observe cart icon | Badge should be aligned above icon | Badge overlaps with cart emoji | Cosmetic | Open | Lena |
-| BUG013 | 13/11/2025 | Navbar | Missing ARIA labels on icons | 1. Inspect cart link with screen reader | Should have descriptive ARIA label | Only reads “link” without context | Minor | Open | Peter |
-| BUG014 | 13/11/2025 | App.js | 404 redirect loops on invalid URL | 1. Visit /random-page | Should redirect once to /catalog | Rapid redirects flash multiple times | Minor | Open | Peter Adebisi |
-| 
+| BUG005| 13/11/2025 | CheckoutPage | Screen reader missing ARIA roles for steps | 1. Open checkout 2. Inspect with screen reader | Each step should have proper ARIA labels | Screen reader reads plain text only | Minor | open | Prifton Mliwa |
+| BUG006| 13/11/2025 | CheckoutPage | Order confirmation flashes before redirect | 1. Complete payment 2. Observe redirect | Smooth redirect to /orders/:id | Confirmation flashes briefly | Cosmetic | Open | Lena |
+| BUG007 | 13/11/2025 | Navbar | Search not submitting queries correctly | 1. Enter a book title 2. Press Enter | Should search and filter catalog results | Pressing Enter only redirects to /catalog without using search input | Major | Open | Peter Adebisi |
+| BUG008| 13/11/2025 | Navbar | Search bar clears unexpectedly after route change | 1. Search a book 2. Navigate to another page 3. Go back | Search term should persist | Search field resets automatically | Minor | Open | Peter Adebisi |
+| BUG009| 13/11/2025 | Navbar | No debounce for keypress in search | 1. Type quickly in search field | Should handle input efficiently | Input lags and re-renders cause delay | Minor | Open | Lena |
+| BUG010| 2025-11-13 | Navbar | ESC key not consistently resetting focus | 1. Click in search 2. Press ESC repeatedly | Should clear and refocus search field | Focus sometimes lost and requires manual click | Minor | Open | Prifton Mliwa|
+| BUG011 | 13/11/2025 | Navbar | Cart count badge overlaps icon on mobile | 1. Open app on narrow screen 2. Observe cart icon | Badge should be aligned above icon | Badge overlaps with cart emoji | Cosmetic | Open | Lena |
+| BUG012| 13/11/2025 | Navbar | Missing ARIA labels on icons | 1. Inspect cart link with screen reader | Should have descriptive ARIA label | Only reads “link” without context | Minor | Open | Peter |
+| BUG013| 13/11/2025 | App.js | 404 redirect loops on invalid URL | 1. Visit /random-page | Should redirect once to /catalog | Rapid redirects flash multiple times | Minor | Open | Peter Adebisi | 
 ---
 
 ## 🧾 Summary
@@ -58,3 +56,4 @@ Prepared by:
 📅 November 13, 2025  
 
 📁 File: tests/defect-log.md
+
