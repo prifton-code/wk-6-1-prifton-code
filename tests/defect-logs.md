@@ -19,7 +19,7 @@ Testing covered routing, navigation, checkout workflow, and accessibility of maj
 | BUG002 | 12/11/2025 | CheckoutPage | Missing input validation for postal code format | 1. Enter letters in postal code 2. Click 'Next'| Should display validation error | Form proceeds without validating postal code | Major | Open | Lena |
 | BUG003 | 12/11/2025 | CheckoutPage | Invalid email accepted | 1. Enter abc@ as email 2. Click 'Next' | Should show “Enter valid email” error | Form accepts invalid email | Major | Open | Peter Adebisi |
 | BUG004 | 13/11/2025 | CheckoutPage | Payment fails silently on network loss | 1. Disconnect network 2. Click 'Pay Now' | User notified of connection issue | Displays “Payment failed to start” without clear cause | Minor | Open | Lena |
-| BUG005 | 13/11/2025 | App Routing | User can open /checkout with empty cart | 1. Clear cart 2. Visit /checkout manually | Should redirect user to /catalog | Checkout loads with empty state | Major | Open | Prifton Mliwa |
+|
 | BUG006 | 13/11/2025 | CheckoutPage | Screen reader missing ARIA roles for steps | 1. Open checkout 2. Inspect with screen reader | Each step should have proper ARIA labels | Screen reader reads plain text only | Minor | open | Prifton Mliwa |
 | BUG007 | 13/11/2025 | CheckoutPage | Order confirmation flashes before redirect | 1. Complete payment 2. Observe redirect | Smooth redirect to /orders/:id | Confirmation flashes briefly | Cosmetic | Open | Lena |
 | BUG008 | 13/11/2025 | Navbar | Search not submitting queries correctly | 1. Enter a book title 2. Press Enter | Should search and filter catalog results | Pressing Enter only redirects to /catalog without using search input | Major | Open | Peter Adebisi |
@@ -29,8 +29,7 @@ Testing covered routing, navigation, checkout workflow, and accessibility of maj
 | BUG012 | 13/11/2025 | Navbar | Cart count badge overlaps icon on mobile | 1. Open app on narrow screen 2. Observe cart icon | Badge should be aligned above icon | Badge overlaps with cart emoji | Cosmetic | Open | Lena |
 | BUG013 | 13/11/2025 | Navbar | Missing ARIA labels on icons | 1. Inspect cart link with screen reader | Should have descriptive ARIA label | Only reads “link” without context | Minor | Open | Peter |
 | BUG014 | 13/11/2025 | App.js | 404 redirect loops on invalid URL | 1. Visit /random-page | Should redirect once to /catalog | Rapid redirects flash multiple times | Minor | Open | Peter Adebisi |
-| BUG015 | 13/11/2025 | CheckoutPage | “Back” button from Payment doesn’t restore cart data | 1. Proceed to Payment step 2. Click 'Back' | Should retain cart and shipping info | Cart data resets in some cases | Major | Open | Prifton |
-
+| 
 ---
 
 ## 🧾 Summary
@@ -57,4 +56,5 @@ Testing covered routing, navigation, checkout workflow, and accessibility of maj
 Prepared by:  
  LPP TEAM
 📅 November 13, 2025  
+
 📁 File: tests/defect-log.md
