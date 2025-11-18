@@ -1,9 +1,8 @@
-# 📘 Bookstore App – QA Test Plan (Draft)
+# 📘 Bookstore App – LPP Test Plan (Draft)
 
 Project: Bookstore App – Web Application  
-Version: Draft v1.0  
 Date: 4th November 2025  
-Prepared by: QA Team (Lena Ngarama, Prifton Mliwa, Peter Adebisi)  
+Prepared by: LPP Team (Lena Ngarama, Prifton Mliwa, Peter Adebisi)  
 
 ---
 
@@ -149,11 +148,10 @@ All test cases and bugs will be traceable to the corresponding Functional Requir
 
 | Name | Role | Signature | Date |
 |------|------|------------|------|
-| Lena Ngarama | QA Analyst |  |  |
-| Peter Adebisi| Test Executor |  |  |
-| Prifton Mliwa | QA Lead |  |  |
-| Supervisor | Project Reviewer |  |  |
+| [Prifton Mliwa] | Project Lead | P.M | 5/11/2025 |
+| [Peter Adebisi ] | Test developer | P.A | 5/11/2025 |
+| [Lena Wahu ] | QA Tester | L.W | 5/11/2025 |
+
 
 ---
-
 
