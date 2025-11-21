@@ -419,6 +419,7 @@ test/evidence/FR-CART-002.png
 1. Search for "!@#$%"
 2. Search for "Harry's"
 3. Search for "book-title"
+   
 **Expected:** Handles special characters gracefully
 
 **Evidence:** `/test/evidence/FR-CAT-014.png`
@@ -431,6 +432,7 @@ test/evidence/FR-CART-002.png
 1. Search "HARRY POTTER" (uppercase)
 2. Search "harry potter" (lowercase)
 3. Search "Harry Potter" (mixed case)
+   
 **Expected:** All return same results
 
 **Evidence:** `/test/evidence/FR-CAT-015.png`
@@ -443,6 +445,7 @@ test/evidence/FR-CART-002.png
 1. Search for "xyz123nonexistent"
 2. Verify "No results found" message
 3. Check if suggestions appear
+   
 **Expected:** Clear empty state message
 
 **Evidence:** `/test/evidence/FR-CAT-016.png`
@@ -455,6 +458,7 @@ test/evidence/FR-CART-002.png
 1. Search "1984"
 2. Navigate to cart
 3. Return to catalog
+   
 **Expected:** Search results maintained or cleared (document which)
 
 **Evidence:** `/test/evidence/FR-CAT-017.png`
@@ -469,6 +473,7 @@ test/evidence/FR-CART-002.png
 1. Add item to cart
 2. Try to increase quantity to 1000
 3. Check if there's a maximum limit
+   
 **Expected:** Reasonable quantity limit enforced
 
 **Evidence:** `/test/evidence/FR-CART-007.png`
@@ -481,6 +486,7 @@ test/evidence/FR-CART-002.png
 1. Add "Harry Potter" to cart
 2. Navigate away and add same book again
 3. Check if quantity increases vs. duplicate entry
+   
 **Expected:** Quantity increments, no duplicates
 
 **Evidence:** `/test/evidence/FR-CART-008.png`
@@ -493,6 +499,7 @@ test/evidence/FR-CART-002.png
 1. Add 3 different books
 2. Remove 1 book
 3. Verify cart badge shows correct count (2)
+
 **Expected:** Badge accurately reflects total items
 
 **Evidence:** `/test/evidence/FR-CART-009.png`
@@ -505,6 +512,7 @@ test/evidence/FR-CART-002.png
 1. Add item in Tab 1
 2. Open new tab with same site
 3. Check if cart syncs between tabs
+   
 **Expected:** Cart state consistent across tabs
 
 **Evidence:** `/test/evidence/FR-CART-010.png`
@@ -520,6 +528,7 @@ test/evidence/FR-CART-002.png
 1. Open on mobile
 2. Test hamburger menu
 3. Verify touch targets (min 44px)
+   
 **Expected:** Mobile navigation works smoothly
 
 **Evidence:** `/test/evidence/FR-RESP-001.png`
@@ -533,6 +542,7 @@ test/evidence/FR-CART-002.png
 1. Test on tablet size
 2. Check catalog grid (2-3 columns)
 3. Verify readable text sizes
+   
 **Expected:** Optimized tablet layout
 
 **Evidence:** `/test/evidence/FR-RESP-002.png`
@@ -545,11 +555,13 @@ test/evidence/FR-CART-002.png
 1. Resize to 320px width
 2. Check for horizontal scrolling
 3. Verify buttons still clickable
+   
 **Expected:** No layout breaks on small screens
 
 **Evidence:** `/test/evidence/FR-RESP-003.png`
 
 ---
+
 
 
 
